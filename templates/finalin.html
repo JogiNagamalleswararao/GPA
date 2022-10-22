@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Sign in & Sign up Form</title>
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+#con{
+  height: 100px;
+  width: 100%;
+  background: #5995fd;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  padding-top: 18px;
+  font-weight: bold;
+}
+.title{
+  padding-bottom: 0px;
+  font-size: 50px;
+}
+.sign-up-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 60px;
+}
+title{
+  padding-bottom: 20px;
+}
+.input-field {
+  max-width: 440px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 25px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  width: 80px;
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.2rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+}
+#cars{
+  max-width: 440px;
+  width: 25%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+body{
+  background-image: url("/static/assets/img/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 2100px 1000px;
+
+
+}
+.alert {
+  padding: 20px;
+  background-color: #ff826b;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+button:hover{
+  background-color: #3e8e41;
+}
+    </style>
+ 
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    
+    <script>
+        function show(select_item) {
+          {
+              hiddenDiv1.style.visibility='visible';
+              hiddenDiv1.style.display='block';           
+             // Form.fileURL.focus();
+              console.log("running");
+              $.ajax({//data:$("#datadiv").find("input").serialize(),
+                  url: "{% url 'python_funct' %}",
+                  type: "GET",
+                  data : { param_first : select_item, },
+                  success: successFunc,
+                  error: errorFunc
+                  });
+
+                  function successFunc(response) {
+                          const imgarr=["p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20"]
+                          window.imgno=response.imgno;
+                          for(let i=0;i<20;i++){
+                            document.getElementById(imgarr[i]).innerHTML = '<img src="data:image/png;base64,'+response.fullname[i]+'" style="width:85px;height:85px">'
+                          }
+                          //alert('ok');
+                          //document.getElementById("p1").innerHTML = response.fullname[0];
+                          //var value=response.fullname[0];
+                       /*   alert(response.fullname[0]);
+                          document.getElementById("p1").innerHTML = '<img src="data:image/png;base64,'+response.fullname[0]+'" style="width:85px;height:85px">'
+                          alert(response.fullname[1]);
+                          document.getElementById("p2").innerHTML = '<img src="data:image/png;base64,'+response.fullname[1]+'" style="width:85px;height:85px">'
+                          alert(response.fullname[2]);
+                          document.getElementById("p3").innerHTML = '<img src="data:image/png;base64,'+response.fullname[0]+'" style="width:85px;height:85px">'
+                          alert(response.fullname[3]);
+                          document.getElementById("p4").innerHTML = '<img src="data:image/png;base64,'+response.fullname[1]+'" style="width:85px;height:85px">'*/
+                      }
+                  function errorFunc() {
+                          alert('error');
+                      }
+
+          } 
+        
+      }   
+      function sequence(n) {
+        x=imgno[n];
+        document.getElementById("pp"+n+"").style.backgroundColor =  "#FF5733";
+        document.getElementById("inputPassword").value+=x;
+        }
+       
+      function validateForm() {
+        var x = document.forms["myForm"]["user"].value;
+        var y=  document.forms["myForm"]["passw"].value;
+        if (x == "") {
+          document.getElementById('alert1').style.visibility='visible';
+          document.getElementById('alert1').style.display='block';
+          return false;
+        }
+        
+        if (y == "") {
+          document.getElementById('alert2').style.visibility='visible';
+          document.getElementById('alert2').style.display='block';
+          return false;
+        }
+      }
+     
+
+
+      </script>
+    
+      <div class="container" >
+        <div class="alert" id="alert1" style="display:none">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';" style="font-size:30px">&times;</span> 
+          <strong style="font-size:20px;margin-left:40px">Please enter your Username</strong>
+        </div>
+        <div class="alert" id="alert2" style="display:none">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';" style="font-size:30px">&times;</span> 
+          <strong style="font-size:20px;margin-left:40px">Please select your image password</strong>
+        </div>
+     
+          <form action="" method="post" class="sign-up-form" name="myForm" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <h1 class="title"> <b>Sign in</b></h1>
+            <div id="body"><div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" name="user" />
+            </div>
+           
+            <div class="input-field" style="display:none">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="inputPassword" placeholder="Password" name="passw" readonly="readonly"  />
+            </div>
+            
+          </div>
+            <form>
+              <label style="font-size:20px"><b>Category:</b></label>
+            
+                  <select name="Fruit" onchange="java_script_:show(this.options[this.selectedIndex].value)" style="border-style:solid;border-radius:5px;border-width:3px;width:200px;height:35px;font-size:20px;" >
+                      <option value='Vehicles'>Vehicles</option>
+                      <option value='Fruits'>Fruits</option>
+                      <option value='Animals'>Animals</option>
+                      <option value='Emojis'>Emojis</option>
+                      <option value='Animals'>Superheroes</option>
+                  </select>
+              </br>
+              <div id='hiddenDiv1' style="display:none">
+
+
+                <div class="row row-cols-auto">
+                  <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('0')" id="pp0"><div id="p1"></div></button></div>
+                  <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('1')"id="pp1"><div id="p2"></div></button></div>
+                  <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('2')"id="pp2"><div id="p3"></div></button></div>
+                  <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('3')"id="pp3"><div id="p4"></div></button></div>
+                  <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('4')"id="pp4"><div id="p5"></button></div>
+                </div>
+              </br>
+              <div class="row row-cols-auto">
+                <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('5')"id="pp5"><div id="p6"></div></button></div>
+                <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('6')"id="pp6"><div id="p7"></div></button></div>
+                <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('7')"id="pp7"><div id="p8"></div></button></div>
+                <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('8')"id="pp8"><div id="p9"></div></button></div>
+                <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('9')"id="pp9"><div id="p10"></div></button></div>
+              </div>
+            </br>
+            <div class="row row-cols-auto">
+              <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('10')"id="pp10"><div id="p11"></div></button></div>
+              <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('11')"id="pp11"><div id="p12"></div></button></div>
+              <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('12')"id="pp12"><div id="p13"></div></button></div>
+              <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('13')"id="pp13"><div id="p14"></div></button></div>
+              <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('14')"id="pp14"><div id="p15"></div></button></div>
+            </div>
+          </br>
+          <div class="row row-cols-auto">
+            <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('15')"id="pp15"><div id="p16"></div></button></div>
+            <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('16')"id="pp16"><div id="p17"></div></button></div>
+            <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('17')"id="pp17"><div id="p18"></div></button></div>
+            <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('18')"id="pp18"><div id="p19"></div></button></div>
+            <div class="col"><button style="border-radius:20px;height:100px;width:100px" type="button" onclick="sequence('19')"id="pp19"><div id="p20"></div></button></div>
+          </div>
+          
+          <a href="/index1" class="btn-get-started " style="font-size:20px">Forget</a>
+
+  <div class="row row-cols-auto" style="margin-top:20px;margin-left:210px;">
+    <div class="col"><button type="submit" style="border-radius:5px;width:150px;height:45px; border-style: solid;
+      border-color: green;border-width:5px;font-size:20px" onclick="myfun()"><b>Submit</b></button></div>
+  </div>
+
+</div>
+</div>
+
+      
+              
+          </form>
+        </form>
+      </div>
+
+      
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
+    </body>
+</html>
+
+

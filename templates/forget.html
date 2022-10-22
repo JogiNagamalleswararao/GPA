@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" class="sign-up-form" name="myForm" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <h1 class="title"> <b>Sign in</b></h1>
+        <div id="body"><div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Username" name="user" />
+        </div>
+        <button type="submit" style="border-radius:5px;width:150px;height:45px; border-style: solid;
+      border-color: green;border-width:5px;font-size:20px" onclick="myfun()"><b>Submit</b></button>
+    </div>
+    </form>
+    <script>
+        function validateForm() {
+        var x = document.forms["myForm"]["user"].value;
+        var y = document.forms["myForm"]["email"].value;
+        var z = document.forms["myForm"]["passw"].value;
+        if (x == "") {
+          document.getElementById('alert1').style.visibility='visible';
+          document.getElementById('alert1').style.display='block';
+          return false;
+        }
+        if (y == "") {
+          document.getElementById('alert2').style.visibility='visible';
+          document.getElementById('alert2').style.display='block';
+          return false;
+        }
+        if (z == "") {
+          document.getElementById('alert3').style.visibility='visible';
+          document.getElementById('alert3').style.display='block';
+          return false;
+        }
+      }
+    </script>
+</body>
+</html>
