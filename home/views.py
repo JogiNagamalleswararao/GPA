@@ -34,7 +34,7 @@ vi=b"1236547890123454"
 
 #*********************** HOME PAGE *****************************
 def first(request):
-    return render(request,'final.html')
+    return render(request,'index.html')
 #***************************************************************
 
 
@@ -63,7 +63,7 @@ def index (request):
 
             }
         coll2.insert_many([users])
-        return render(request,'final.html')
+        return render(request,'index.html')
     return render(request,'signup.html')
 #************************************************************************
 
