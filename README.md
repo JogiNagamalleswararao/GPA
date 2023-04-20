@@ -7,12 +7,12 @@ The existing method of authentication in use today is alphanumerical usernames a
 
 In today’s IT world, for computer and information security the user authentication plays a significant role. For this authentication a password is a very important aspect. The conventional method of alphanumeric(Textual) passwords has certain drawbacks I.e. problem of memorability, and vulnerable to various attacks like brute force, dictionary attack, spyware, guessing.
 
-##Recognition Based System: 
+## Recognition Based System: 
 
 In this type of graphical authentication technique multiple images are shown to user at registration phase. User has to select some images in a particular order to keep it as their password. So, at the time of login the selected images are shuffled and displayed to the user. The user has to select the images in the same order as selected at the time of registration. Every time the user will have to use the same sequence while the images are placed in different ways.
 
-##Two Step Verification:
+## Two Step Verification:
 
 In graphical authentication technique multiple images are shown to user at registration phase. During this process there is risk of shoulder surfing so we can make it more securely by having OTP verification to email by using the Pega tool. When the images are selected in successful way the Email verification starts. User has to enter the correct OTP to move forward.
 
-##implementation
+## implementation
