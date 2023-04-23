@@ -18,14 +18,14 @@ In graphical authentication technique multiple images are shown to user at regi
 ## hacker try to craack this system(simple calculations)
 
 - 5*4=20 imgs
-- shuffling imgs 20!
+- shuffling imgs 20! ie
 20! = 2432902008176640000
 - selecting min 5 img (ie combinations 20C5)
 20C5=15504
 - calculat shuffling imgs* -selecting min 5 img out of 20 imgs
 ie: 20!*15504=37719712734770626560000 combinations
 - every 5 attemps will be faild account will be blocked 1H
-37719712734770626560000/5=7543942546954125312000H
+ ie 37719712734770626560000/5=7543942546954125312000H
 - convert days 
 7543942546954125312000/24=314330939456421888000 days 
 - convert Years 
